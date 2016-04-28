@@ -1,0 +1,322 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
+/* --------------------------------------------------------------- */
+/* VARIABLES */
+/* --------------------------------------------------------------- */
+
+$light-orange:#F4B350;
+$dark-orange:#e67e22;
+$roboto: 'Roboto', sans-serif;
+
+
+/* --------------------------------------------------------------- */
+/* MAIN STYLING */
+/* --------------------------------------------------------------- */
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+body,html{
+  font-size:16px;
+  font-family: $roboto;
+  font-weight:300;
+  text-rendering: optimizeLegibility;
+  color:#555;
+}
+
+.row{
+  max-width:1140px;
+  width:100%;
+  margin:0 auto;
+}
+
+.clearfix:after{
+  content:'';
+  display:table;
+  clear:both;
+}
+
+section{
+  padding:60px;
+}
+
+.lorem:after{
+  display:block;
+  content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lobortis porttitor dolor eget mollis. Nunc quis quam ut sem vulputate faucibus vel nec nulla. Maecenas semper mollis sem at lobortis. Maecenas non lacus dolor. Aenean libero quam, accumsan ut massa vel, iaculis condimentum metus. Suspendisse ullamcorper eu sem eu iaculis. Integer sit amet varius turpis, ut mattis nisl. Nunc rutrum eget enim sit amet laoreet. Nunc nec nunc purus. Nullam sagittis faucibus leo, eu lobortis dolor condimentum sed. ';
+}
+
+ul{
+  margin-left:0;
+}
+
+.survey:before{
+  content:'';
+  display:block;
+  width:100%;
+  height:30vh;
+  background-color:$light-orange;
+}
+
+a{
+  color:inherit;
+}
+
+p{
+  font-weight:300;
+}
+
+/* --------------------------------------------------------------- */
+/* HEADINGS */
+/* --------------------------------------------------------------- */
+
+h1{
+  font-weight:300;
+  font-size:250%;
+  margin-bottom:50px;
+  text-align: center;
+}
+
+
+
+/* --------------------------------------------------------------- */
+/* BUTTONS */
+/* --------------------------------------------------------------- */
+
+.btn{
+  padding:10px 20px;
+  font-weight:400;
+  font-size:110%;
+  font-family:$roboto;
+  background-color:$light-orange;
+  color:#fff;
+  border:none;
+  border-radius: 2px;
+  margin-right:30px;
+}
+
+.btn-center{
+  text-align: center;
+}
+
+.btn:hover{
+  background-color: $dark-orange;
+  color:#fff;
+}
+
+
+/* --------------------------------------------------------------- */
+/* HEADER */
+/* --------------------------------------------------------------- */
+
+header{
+  height:100px;
+  line-height:100px;
+  background-color:#fff;
+}
+
+header nav ul li{
+  display: inline-block;
+  margin-right:30px;
+}
+
+header ul{
+  line-height:100px;
+}
+
+header nav .menu-left{
+  float:left;
+  width:50%;
+}
+
+header nav .menu-right{
+  float:right;
+  width:50%;
+  text-align: right;
+  font-size:90%;
+}
+
+.logo{
+  font-size:200%;
+}
+
+/* --------------------------------------------------------------- */
+/* SECTION-SUB */
+/* --------------------------------------------------------------- */
+
+.section-sub{
+  background-color:$light-orange;
+  color:#fff;
+  padding:30px;
+}
+
+.section-sub ul li{
+  display:inline-block;
+  margin-right:30px;
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------- */
+/* SECTION-MAIN */
+/* --------------------------------------------------------------- */
+
+.section-main{
+  min-height:90vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.card-section{
+  margin-bottom:50px;
+}
+.card{
+  width:30%;
+  min-height:300px;
+  border:1px solid #f1f1f1;
+  box-shadow: 5px 5px 2px #efefef;
+  border-radius: 2px;
+  float:left;
+  margin-right:30px;
+  margin-top:30px;
+}
+
+.card-large .card-header{
+  min-height:153.188px;
+}
+
+.card-header{
+  padding:20px 10px;
+  background-color:#fcfcfc;
+
+}
+
+.card-header h2{
+  font-weight:300;
+  font-family:$roboto;
+}
+
+.card-body{
+  color:#555;
+  height:180px;
+  border-bottom:1px solid #f1f1f1;
+}
+.card-body ul{
+  padding:20px;
+}
+
+.card-body ul li{
+  list-style: none;
+  margin-bottom:20px;
+}
+
+.card-footer{
+  padding:20px;
+  text-align: left;
+}
+
+/* --------------------------------------------------------------- */
+/* LOGIN-BOX */
+/* --------------------------------------------------------------- */
+
+.login-box{
+  margin: 0 auto;
+  min-height:500px;
+  width:50%;
+}
+
+.login-box label{
+  font-weight:500;
+  font-size:110%;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"],
+.login-box input[type="text"],
+.login-box input[type="number"],
+.login-box textarea,
+.login-box select{
+  width:100%;
+  float:left;
+  margin-bottom:30px;
+  padding:10px 10px;
+  box-shadow: 5px 5px 2px #eee;
+  border:1px solid #d2d2d2;
+  font-family:$roboto;
+  font-weight:300;
+  font-size:95%;
+  transition: box-shadow 0.2s;
+}
+
+.login-box input[type="email"]:focus,
+.login-box input[type="password"]:focus,
+.login-box input[type="text"]:focus,
+.login-box input[type="number"]:focus,
+.login-box textarea:focus,
+.login-box select:focus{
+  box-shadow:2px 2px 2px #d2d2d2;
+}
+
+.login-box input[type="checkbox"]{
+  width:100%;
+  margin:20px 20px 20px 0;
+}
+
+
+.login-box .btn-center{
+  left:25%;
+  width:50%;
+}
+
+/* --------------------------------------------------------------- */
+/* SECTION-SURVEY */
+/* --------------------------------------------------------------- */
+
+.survey-section{
+  padding-bottom:50px;
+  border-bottom:1px solid #d2d2d2;
+  margin-bottom:50px;
+  display:none;
+}
+
+.survey-section h2{
+  font-weight:400;
+  margin-bottom:20px;
+}
+
+.survey-selection p{
+  margin-bottom:10px;
+  font-weight:300 !important;
+}
+
+.section-active{
+  display:block;
+}
+
+input[type="radio"]{
+  margin-bottom:20px;
+}
+
+/* --------------------------------------------------------------- */
+/* FOOTER */
+/* --------------------------------------------------------------- */
+
+
+footer{
+  margin-top:30px;
+  height:60px;
+  line-height:60px;
+  text-align: center;
+  background-color:$light-orange;
+  color:#fff;
+  font-weight:400;
+}
+footer ul{
+  line-height:60px;
+  margin-bottom:0;
+}
+footer ul li{
+  list-style: none;
+  display: inline-block;
+  margin-right:30px;
+}
