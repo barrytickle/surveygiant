@@ -9,6 +9,7 @@
 </head>
 <body>
 @include('includes.header')
+@yield('extra-nav')
 <section class="section-main">
     @yield('content')
 </section>

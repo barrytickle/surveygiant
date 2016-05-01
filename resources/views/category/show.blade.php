@@ -7,7 +7,8 @@
                 @foreach($cat->surveys as $survey)
                      @if(!$survey)
                          <h4>Sorry, no surveys are available yet. Be the first to create one for this category!</h4>
-                     @else
+                     @endif
+                     @if($survey->published == 1)
                     <div class="card">
                         <div class="card-header"><h2>{{$survey->name}}</h2></div>
                         <div class="card-body">

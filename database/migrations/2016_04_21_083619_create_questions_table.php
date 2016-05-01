@@ -16,6 +16,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->string('QuestionName');
             $table->string('QuestionType');
+            $table->timestamps();
         });
     }
 

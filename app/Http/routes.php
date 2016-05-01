@@ -16,10 +16,17 @@ Route::resource('category', 'CategoryController');
 Route::resource('survey', 'SurveyController');
 Route::post('survey/respond', array('uses' => 'SurveyController@response'));
 
-
 Route::group(['middleware' => 'web'], function(){
     Route::auth();
     Route::get('/home', 'HomeController@index');
     Route::resource('/me', 'MemberController');
-    Route::get('survey/{id}/questions', 'QuestionsController@edit');
+    Route::resource('responses', 'ResponseController');
+    Route::resource('question', 'QuestionController');
+    Route::get('question/{id}/create', 'QuestionController@create');
+    Route::get('choice/{id}/create', 'ChoiceController@create');
+    Route::resource('choice', 'ChoiceController');
+    Route::resource('/admin/user', 'UserController');
+    Route::resource('/admin/survey', 'AdminSurveyController');
+    Route::resource('/admin/category', 'AdminCategoryController');
+    Route::resource('/admin/role', 'RoleController');
 });

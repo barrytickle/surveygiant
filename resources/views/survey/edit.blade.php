@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
     <div class="row">
-        <h1>Create a survey</h1>
-        {!! Form::open(array('class'=>'login-box')) !!}
+        <h1>Edit - {{ $survey->name }}</h1>
+        {!! Form::model($survey, ['method' => 'PATCH', 'url' => 'survey/' . $survey->id, 'class' => 'login-box']) !!}
         <section class="survey-section section-active">
             {!! Form::label('name', 'Survey Name:') !!}
             {!! Form::text('name', null) !!}
@@ -11,10 +11,16 @@
             {!! Form::label('expire', 'How many days would you like this to be available for?:') !!}
             {!! Form::number('expire', null) !!}
             {!! Form::label('category', 'Category:') !!}
-            {!! Form::select('category[]', $cats, null) !!}
+            @foreach($survey->category as $cat)
+                {!! Form::select('category[]', $cats,$cat->id ) !!}
+            @endforeach
             {!! Form::label('publish', 'Publish Survey?') !!}
-            {!! Form::checkbox('publish', 'Publish') !!}
-            {!! Form::submit('Create Survey', array('class' => 'btn btn-center')) !!}
+            @if($survey->published == 1)
+                {!! Form::checkbox('publish', 'Publish', true) !!}
+            @else
+                {!! Form::checkbox('publish', 'Publish') !!}
+            @endif
+            {!! Form::submit('Update Survey', ['class' => 'btn']) !!}
         </section>
         {!! Form::close() !!}
     </div>

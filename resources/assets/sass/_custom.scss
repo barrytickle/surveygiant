@@ -67,6 +67,18 @@ p{
   font-weight:300;
 }
 
+.hidden{
+  display: none;
+}
+
+
+/* --------------------------------------------------------------- */
+/* TABLES */
+/* --------------------------------------------------------------- */
+
+table{
+  width:100%;
+}
 /* --------------------------------------------------------------- */
 /* HEADINGS */
 /* --------------------------------------------------------------- */
@@ -107,6 +119,39 @@ h1{
 
 
 /* --------------------------------------------------------------- */
+/* ADMIN BAR */
+/* --------------------------------------------------------------- */
+
+.admin-bar{
+  background-color:#34495e;
+  color:#fff;
+  height:30px;
+  line-height:30px;
+  font-size:90%;
+}
+.admin-bar a{
+  transition:0.2s;
+}
+.admin-bar a:hover{
+  color:$light-orange;
+}
+.admin-bar ul{
+  list-style: none;
+  font-size:90%;
+  margin-bottom:0;
+}
+
+.admin-bar ul li{
+  display:inline-block;
+  margin-right:30px;
+  line-height:30px;
+}
+
+.admin-bar .menu-right{
+  text-align: right;
+}
+
+/* --------------------------------------------------------------- */
 /* HEADER */
 /* --------------------------------------------------------------- */
 
@@ -125,15 +170,18 @@ header ul{
   line-height:100px;
 }
 
-header nav .menu-left{
+.menu-left{
   float:left;
   width:50%;
 }
 
-header nav .menu-right{
+.menu-right{
   float:right;
   width:50%;
   text-align: right;
+}
+
+header.menu-right{
   font-size:90%;
 }
 
@@ -295,6 +343,15 @@ header nav .menu-right{
 
 input[type="radio"]{
   margin-bottom:20px;
+}
+
+
+/* --------------------------------------------------------------- */
+/* TABLE */
+/* --------------------------------------------------------------- */
+
+table a{
+  color:$dark-orange;
 }
 
 /* --------------------------------------------------------------- */

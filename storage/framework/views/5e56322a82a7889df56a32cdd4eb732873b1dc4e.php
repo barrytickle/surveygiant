@@ -12,8 +12,22 @@
             <?php foreach($sur->question as $question): ?>
                 <section class="survey-section">
                     <h1><?php echo e($question->QuestionName); ?></h1>
-                    <?php if($question->QuestionType == 'Open'): ?>
-                        <?php echo Form::text('sur['.$question->id.']','test'); ?>
+                    <?php if($question->QuestionType == 'Short'): ?>
+                        <?php echo Form::text('sur['.$question->id.']'); ?>
+
+                    <?php endif; ?>
+                    <?php if($question->QuestionType == 'Radio'): ?>
+                        <div class="row">
+                            <?php foreach($question->choice as $choice): ?>
+                                <?php echo Form::radio('sur['.$question->id.']', $choice->ChoiceName, ['id' => $choice->ChoiceName.$question->id]); ?>
+
+                                <?php echo Form::label($choice->ChoiceName.$question->id, $choice->ChoiceName); ?>
+
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if($question->QuestionType == 'Long'): ?>
+                        <?php echo Form::textarea('sur['.$question->id.']'); ?>
 
                     <?php endif; ?>
                     <button type="button" class="btn js-btn-left">Back</button>

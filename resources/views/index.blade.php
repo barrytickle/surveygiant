@@ -8,6 +8,7 @@
                     <div class="card-body">
                         <ul>
                             @foreach($cat->surveys as $survey)
+
                                 @if($survey->published == 1)
                                     <li><a href="/survey/{{$survey->slug}}">{{$survey->name}}</a></li>
                                 @endif

@@ -12,7 +12,7 @@ class CreateQuestionResponsesTable extends Migration
      */
     public function up()
     {
-        Schema::create('question_responses', function (Blueprint $table) {
+        Schema::create('question_response', function (Blueprint $table) {
             $table->integer('question_id')->unsigned()->index();
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->integer('response_id')->unsigned()->index();
@@ -28,6 +28,6 @@ class CreateQuestionResponsesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('question_responses');
+        Schema::drop('question_response');
     }
 }

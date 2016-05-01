@@ -14,6 +14,8 @@ use App\response;
 
 class SurveyController extends Controller
 {
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -61,11 +63,7 @@ class SurveyController extends Controller
      */
     public function show($id)
     {
-
         $survey = surveys::all()->where('slug', $id);
-        if (!$survey) {
-            return redirect('/');
-        }
             return view('survey.show', ['survey' => $survey]);
     }
 
@@ -77,7 +75,7 @@ class SurveyController extends Controller
      */
     public function edit($id)
     {
-        $survey = surveys::all()->where('slug', $id);
+        $survey = surveys::findOrFail($id);
         $cats = category::lists('CategoryName', 'id');
         return view('survey.edit', compact('survey', 'cats'));
     }
@@ -91,7 +89,20 @@ class SurveyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $survey = surveys::findOrFail($id);
+        if(!empty($request->get('publish'))){
+            $survey->published = 1;
+        }
+        else{
+            $survey->published = 0;
+        }
+        $survey->update($request->all());
+        foreach($survey->category as $surveys){
+            $surveys->update($request->input('category'));
+        }
+
+        $survey->save();
+        return redirect('/me/survey');
     }
 
     /**
@@ -102,7 +113,10 @@ class SurveyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $survey= surveys::find($id);
+        $survey->delete();
+        return redirect('/me/survey');
+
     }
 
     /**
@@ -114,19 +128,16 @@ class SurveyController extends Controller
 
     public function response(Request $request)
     {
-            $input = Input::get('sur');
-        $resp = response::create($request->all());
-            foreach($input as $response)
-            {
-                print($resp->id);
-                $resp->ResponseName = $response;
-//                $resp->save();
-            }
+        $input = Input::get('sur');
+
+        foreach($input as $key => $response)
+        {
+            $resp = response::create($request->all());
+            $resp->ResponseName = $response;
+            $resp->question()->attach($key);
+            $resp->save();
+        }
 
         return redirect('/');
-//        $response = response::create($request->all());
-//        $response->ResponseName =
-//        $response->save();
-//        return redirect('/');
     }
 }

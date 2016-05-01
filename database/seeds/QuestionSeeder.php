@@ -12,9 +12,9 @@ class QuestionSeeder extends Seeder
     public function run()
     {
         DB::table('questions')->insert([
-            ['id'=>1, 'QuestionName'=>'What Is your name?', 'QuestionType'=>'Open'],
-            ['id'=>2, 'QuestionName'=>'How Old Are You?', 'QuestionType'=>'Open'],
-            ['id'=>3, 'QuestionName'=>'Where are you from?', 'QuestionType'=>'Open'],
+            ['id'=>1, 'QuestionName'=>'What Is your name?', 'QuestionType'=>'Short'],
+            ['id'=>2, 'QuestionName'=>'How Old Are You?', 'QuestionType'=>'Short'],
+            ['id'=>3, 'QuestionName'=>'Where are you from?', 'QuestionType'=>'Short'],
         ]);
     }
 }

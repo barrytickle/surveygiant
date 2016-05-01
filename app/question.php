@@ -12,14 +12,14 @@ class question extends Model
     ];
 
     public function surveys(){
-        $this->belongsToMany('App\surveys');
+        return $this->belongsToMany('App\surveys');
     }
 
     public function choice(){
-        $this->belongsToMany('App\choice');
+        return $this->belongsToMany('App\choice');
     }
 
     public function response(){
-        $this->belongsToMany('App\response');
+        return $this->belongsToMany('App\response');
     }
 }

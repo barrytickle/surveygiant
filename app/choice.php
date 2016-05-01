@@ -11,6 +11,6 @@ class choice extends Model
     ];
 
     public function question(){
-        $this->belongsToMany('App\question');
+       return $this->belongsToMany('App\question');
     }
 }

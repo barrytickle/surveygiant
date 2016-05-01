@@ -21,19 +21,25 @@
                 </div>
                 <div class="card-footer">
                     <div class="row btn-center">
-                        <button class="btn "><a href="/survey/<?php echo e($survey->slug); ?>">View</a></button>
+                        <button class="btn "><a href="/survey/<?php echo e($survey->slug); ?>">View Survey</a></button>
                     </div>
                     <div class="row btn-center">
-                        <button class="btn"><a href="/survey/<?php echo e($survey->slug); ?>/edit">Edit Survey</a></button>
+                        <button class="btn"><a href="/survey/<?php echo e($survey->id); ?>/edit">Edit Survey</a></button>
                     </div>
                     <div class="row btn-center">
-                        <button class="btn btn-center"><a href="/me/survey/<?php echo e($survey->slug); ?>/questions/edit">Edit Questions</a></button>
+                        <button class="btn btn-center"><a href="/question/<?php echo e($survey->slug); ?>">Questions</a></button>
                     </div>
                     <div class="row btn-center">
-                         <button class="btn"><a href="/survey/<?php echo e($survey->slug); ?>/edit">Responses</a></button>
+                         <button class="btn"><a href="/responses/<?php echo e($survey->slug); ?>">View Responses</a></button>
                     </div>
                     <div class="row btn-center">
-                        <a href="/survey/<?php echo e($survey->slug); ?>/delete"><button class="btn ">Delete</button></a>
+                        <?php echo Form::open(['method' => 'DELETE', 'route' => ['survey.destroy', $survey->id]]); ?>
+
+                        <?php echo Form::submit('Delete Survey', ['class' => 'btn']); ?>
+
+                        <?php echo Form::close(); ?>
+
+
                     </div>
                 </div>
             </div>

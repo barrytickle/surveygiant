@@ -9,6 +9,7 @@
 </head>
 <body>
 <?php echo $__env->make('includes.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->yieldContent('extra-nav'); ?>
 <section class="section-main">
     <?php echo $__env->yieldContent('content'); ?>
 </section>

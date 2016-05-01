@@ -6,7 +6,8 @@
                 <?php foreach($cat->surveys as $survey): ?>
                      <?php if(!$survey): ?>
                          <h4>Sorry, no surveys are available yet. Be the first to create one for this category!</h4>
-                     <?php else: ?>
+                     <?php endif; ?>
+                     <?php if($survey->published == 1): ?>
                     <div class="card">
                         <div class="card-header"><h2><?php echo e($survey->name); ?></h2></div>
                         <div class="card-body">

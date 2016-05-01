@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\category;
-use App\surveys;
 
 class CategoryController extends Controller
 {

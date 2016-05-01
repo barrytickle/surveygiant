@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
-        <h1>Create a survey</h1>
-        <?php echo Form::open(array('class'=>'login-box')); ?>
+        <h1>Edit - <?php echo e($survey->name); ?></h1>
+        <?php echo Form::model($survey, ['method' => 'PATCH', 'url' => 'survey/' . $survey->id, 'class' => 'login-box']); ?>
 
         <section class="survey-section section-active">
             <?php echo Form::label('name', 'Survey Name:'); ?>
@@ -18,13 +18,20 @@
 
             <?php echo Form::label('category', 'Category:'); ?>
 
-            <?php echo Form::select('category[]', $cats, null); ?>
+            <?php foreach($survey->category as $cat): ?>
+                <?php echo Form::select('category[]', $cats,$cat->id ); ?>
 
+            <?php endforeach; ?>
             <?php echo Form::label('publish', 'Publish Survey?'); ?>
 
-            <?php echo Form::checkbox('publish', 'Publish'); ?>
+            <?php if($survey->published == 1): ?>
+                <?php echo Form::checkbox('publish', 'Publish', true); ?>
 
-            <?php echo Form::submit('Create Survey', array('class' => 'btn btn-center')); ?>
+            <?php else: ?>
+                <?php echo Form::checkbox('publish', 'Publish'); ?>
+
+            <?php endif; ?>
+            <?php echo Form::submit('Update Survey', ['class' => 'btn']); ?>
 
         </section>
         <?php echo Form::close(); ?>

@@ -1,3 +1,23 @@
+<?php if(!Auth::guest()): ?>
+    <?php foreach(Auth::user()->role as $role): ?>
+        <?php if($role->name == 'Admin'): ?>
+            <nav class="admin-bar">
+                <div class="row">
+                    <ul class="menu-left">
+                        <li>Welcome, Admin</li>
+                    </ul>
+                    <ul class="menu-right">
+                        <li><a href="/admin/user">Modify Users</a></li>
+                        <li><a href="/admin/category">Modify Categories</a></li>
+                        <li><a href="/admin/role">Modify Roles</a></li>
+                        <li><a href="/admin/survey">Modify Surveys</a></li>
+                    </ul>
+                </div>
+            </nav>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+
 <header>
     <nav class="row clearfix">
         <ul class="menu-left">
@@ -11,7 +31,7 @@
                 <li><a href="<?php echo e(url('/login')); ?>">Sign In</a></li>
                 <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
             <?php else: ?>
-                <li><a href="/me"><?php echo e(Auth::user()->name); ?></a></li>
+                <li><a href="/me/survey"><?php echo e(Auth::user()->name); ?></a></li>
                 <li><a href="<?php echo e(url('/logout')); ?>"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
             <?php endif; ?>
         </ul>

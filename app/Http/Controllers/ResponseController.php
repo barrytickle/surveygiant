@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\surveys;
 use App\Http\Requests;
 
 class ResponseController extends Controller
@@ -47,7 +47,8 @@ class ResponseController extends Controller
      */
     public function show($id)
     {
-        //
+        $survey = surveys::all()->where('slug', $id);
+        return view('responses.show',compact('survey'));
     }
 
     /**

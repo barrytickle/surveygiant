@@ -7,6 +7,7 @@
                     <div class="card-body">
                         <ul>
                             <?php foreach($cat->surveys as $survey): ?>
+
                                 <?php if($survey->published == 1): ?>
                                     <li><a href="/survey/<?php echo e($survey->slug); ?>"><?php echo e($survey->name); ?></a></li>
                                 <?php endif; ?>

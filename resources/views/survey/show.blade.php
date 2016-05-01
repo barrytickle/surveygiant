@@ -12,8 +12,19 @@
             @foreach($sur->question as $question)
                 <section class="survey-section">
                     <h1>{{$question->QuestionName}}</h1>
-                    @if($question->QuestionType == 'Open')
-                        {!! Form::text('sur['.$question->id.']','test') !!}
+                    @if($question->QuestionType == 'Short')
+                        {!! Form::text('sur['.$question->id.']') !!}
+                    @endif
+                    @if($question->QuestionType == 'Radio')
+                        <div class="row">
+                            @foreach($question->choice as $choice)
+                                {!! Form::radio('sur['.$question->id.']', $choice->ChoiceName, ['id' => $choice->ChoiceName.$question->id]) !!}
+                                {!! Form::label($choice->ChoiceName.$question->id, $choice->ChoiceName) !!}
+                            @endforeach
+                        </div>
+                    @endif
+                    @if($question->QuestionType == 'Long')
+                        {!! Form::textarea('sur['.$question->id.']') !!}
                     @endif
                     <button type="button" class="btn js-btn-left">Back</button>
                     <button type="button" class="btn js-btn-right">Next</button>
