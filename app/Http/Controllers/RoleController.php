@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 use App\Http\Requests;
 use App\role;
 
@@ -56,9 +57,10 @@ class RoleController extends Controller
      */
     public function show($id)
     {
+
         foreach(Auth::user()->role as $role){
             if($role->name == 'Admin'){
-                $roles = role::all()->where('id', $id);
+                $roles = role::findOrFail($id);
                 return view('admin.role.show', compact('roles'));
             }
             return redirect('/');
@@ -106,8 +108,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $role = role::findOrFail($id);
-        $role->delete();
+//        DB::table('role_user')->delete()->where(['role_id', $id], ['user_id', ''])
         return redirect('/admin/role');
     }
 }

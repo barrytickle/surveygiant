@@ -13,8 +13,8 @@
                         <div class="card-body">
                             <ul>
                                 <li>Author: <?php echo e($survey->user->name); ?></li>
-                                <li>Created: <?php echo e($survey->published_at); ?></li>
-                                <li>Days Left: <?php echo e($survey->expire); ?></li>
+                                <li>Created: <?php echo e($survey->created_at); ?></li>
+                                <?php /*<li>Days Left: <?php echo e($survey->expire); ?></li>*/ ?>
                             </ul>
                         </div>
                         <div class="card-footer">

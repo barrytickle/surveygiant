@@ -48,7 +48,8 @@ class ResponseController extends Controller
     public function show($id)
     {
         $survey = surveys::all()->where('slug', $id);
-        return view('responses.show',compact('survey'));
+        $count = count($survey);
+        return view('responses.show',compact('survey', 'count'));
     }
 
     /**

@@ -13,6 +13,7 @@ class CreateQuestionResponsesTable extends Migration
     public function up()
     {
         Schema::create('question_response', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('question_id')->unsigned()->index();
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->integer('response_id')->unsigned()->index();

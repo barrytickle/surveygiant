@@ -16,7 +16,7 @@
                         {!! Form::text('sur['.$question->id.']') !!}
                     @endif
                     @if($question->QuestionType == 'Radio')
-                        <div class="row">
+                        <div class="row radio">
                             @foreach($question->choice as $choice)
                                 {!! Form::radio('sur['.$question->id.']', $choice->ChoiceName, ['id' => $choice->ChoiceName.$question->id]) !!}
                                 {!! Form::label($choice->ChoiceName.$question->id, $choice->ChoiceName) !!}

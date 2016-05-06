@@ -24,7 +24,7 @@
                     @endforeach
                     <td><a href="/admin/user/{{$surveys->user->id}}">{{$surveys->user->name}}</a></td>
                     <td>{{$surveys->created_at}}</td>
-                    <td>{{$surveys->expire}}</td>
+                    {{--<td>{{$surveys->expire}}</td>--}}
                     <td>{!! Form::open(['method' => 'DELETE', 'route' => ['admin.survey.destroy', $surveys->id]]) !!}
                         {!! Form::submit('Delete', ['class' => 'btn']) !!}
                         {!! Form::close() !!}</td>

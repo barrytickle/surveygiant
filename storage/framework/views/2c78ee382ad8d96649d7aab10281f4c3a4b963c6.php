@@ -16,7 +16,7 @@
                                 Yes
                             <?php endif; ?>
                         </li>
-                        <li>Days left: <?php echo e($survey->expire); ?></li>
+                        <?php /*<li>Days left: <?php echo e($survey->expire); ?></li>*/ ?>
                     </ul>
                 </div>
                 <div class="card-footer">

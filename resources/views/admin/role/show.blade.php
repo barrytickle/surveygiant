@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <div class="row">
-        <h1>{{$roles}} - Users</h1>
+        <h1>{{$roles->name}} - Users</h1>
     </div>
     <div class="row">
         <table>
@@ -13,15 +13,19 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($roles as $role)
-                <tr>
-                    @foreach($role->user as $user)
-                        <td>{{$user}}</td>
+                @foreach($roles->user as $user)
+                    @foreach($user->role as $role)
+                        @if($role->id == $roles->id)
+                        <tr>
+                            <td>{{$user->name}}</td>
+                            <td><a href="/admin/users/{{$user->id}}/edit"><button type="button" class="btn">Edit</button></a></td>
+                            <td>{!! Form::open(['method' => 'DELETE', 'route' => ['admin.role.destroy', $role->id]]) !!}
+                                {!! Form::submit('Delete Role', ['class' => 'btn']) !!}
+                                {!! Form::close() !!}</td>
+                        </tr>
+                        @endif
                     @endforeach
-                    <td>Edit</td>
-                    <td>Delete</td>
-                </tr>
-            @endforeach
+                @endforeach
             </tbody>
         </table>
     </div>

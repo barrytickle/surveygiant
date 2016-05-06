@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
-        <h1><?php echo e($roles); ?> - Users</h1>
+        <h1><?php echo e($roles->name); ?> - Users</h1>
     </div>
     <div class="row">
         <table>
@@ -12,15 +12,21 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach($roles as $role): ?>
-                <tr>
-                    <?php foreach($role->user as $user): ?>
-                        <td><?php echo e($user); ?></td>
+                <?php foreach($roles->user as $user): ?>
+                    <?php foreach($user->role as $role): ?>
+                        <?php if($role->id == $roles->id): ?>
+                        <tr>
+                            <td><?php echo e($user->name); ?></td>
+                            <td><a href="/admin/users/<?php echo e($user->id); ?>/edit"><button type="button" class="btn">Edit</button></a></td>
+                            <td><?php echo Form::open(['method' => 'DELETE', 'route' => ['admin.role.destroy', $role->id]]); ?>
+
+                                <?php echo Form::submit('Delete Role', ['class' => 'btn']); ?>
+
+                                <?php echo Form::close(); ?></td>
+                        </tr>
+                        <?php endif; ?>
                     <?php endforeach; ?>
-                    <td>Edit</td>
-                    <td>Delete</td>
-                </tr>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>

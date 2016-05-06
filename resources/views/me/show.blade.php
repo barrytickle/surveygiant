@@ -17,7 +17,7 @@
                                 Yes
                             @endif
                         </li>
-                        <li>Days left: {{$survey->expire}}</li>
+                        {{--<li>Days left: {{$survey->expire}}</li>--}}
                     </ul>
                 </div>
                 <div class="card-footer">

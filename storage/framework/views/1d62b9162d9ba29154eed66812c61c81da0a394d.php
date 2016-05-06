@@ -13,9 +13,11 @@
                 <section class="survey-section">
                     <h1><?php echo e($question->QuestionName); ?></h1>
                     <h2>Responses</h2>
-                    <?php foreach($question->response as $response): ?>
-                        <li><?php echo e($response->ResponseName); ?></li>
-                    <?php endforeach; ?>
+                    <ul class="responses">
+                        <?php foreach($question->response as $response): ?>
+                            <li><?php echo e($response->ResponseName); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
                     <button type="button" class="btn js-btn-left">Back</button>
                     <button type="button" class="btn js-btn-right">Next</button>
                 </section>

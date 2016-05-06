@@ -491,6 +491,8 @@ return array(
     'PHP_Token_YIELD_FROM' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'QuestionSeeder' => $baseDir . '/database/seeds/QuestionSeeder.php',
     'QuestionSurveySeeder' => $baseDir . '/database/seeds/QuestionSurveySeeder.php',
+    'RoleSeeder' => $baseDir . '/database/seeds/RoleSeeder.php',
+    'RoleUserSeeder' => $baseDir . '/database/seeds/RoleUserSeeder.php',
     'SebastianBergmann\\Comparator\\ArrayComparator' => $vendorDir . '/sebastian/comparator/src/ArrayComparator.php',
     'SebastianBergmann\\Comparator\\Comparator' => $vendorDir . '/sebastian/comparator/src/Comparator.php',
     'SebastianBergmann\\Comparator\\ComparisonFailure' => $vendorDir . '/sebastian/comparator/src/ComparisonFailure.php',
@@ -530,4 +532,5 @@ return array(
     'SurveySeeder' => $baseDir . '/database/seeds/SurveySeeder.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'UserSeeder' => $baseDir . '/database/seeds/UserSeeder.php',
 );

@@ -6,6 +6,7 @@
 
 $light-orange:#F4B350;
 $dark-orange:#e67e22;
+$pale-orange:#FDE3A7;
 $roboto: 'Roboto', sans-serif;
 
 
@@ -343,6 +344,19 @@ header.menu-right{
 
 input[type="radio"]{
   margin-bottom:20px;
+}
+
+.responses li{
+  list-style:none;
+  width:100%;
+  padding:10px 20px;
+}
+.responses li:nth-child(even){
+  background-color:$pale-orange;
+}
+
+.radio label{
+  width:90%;
 }
 
 

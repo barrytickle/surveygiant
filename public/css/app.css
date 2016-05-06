@@ -6928,6 +6928,17 @@ header.menu-right {
 input[type="radio"] {
   margin-bottom: 20px; }
 
+.responses li {
+  list-style: none;
+  width: 100%;
+  padding: 10px 20px; }
+
+.responses li:nth-child(even) {
+  background-color: #FDE3A7; }
+
+.radio label {
+  width: 90%; }
+
 /* --------------------------------------------------------------- */
 /* TABLE */
 /* --------------------------------------------------------------- */

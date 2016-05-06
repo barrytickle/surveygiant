@@ -13,9 +13,11 @@
                 <section class="survey-section">
                     <h1>{{$question->QuestionName}}</h1>
                     <h2>Responses</h2>
-                    @foreach($question->response as $response)
-                        <li>{{$response->ResponseName}}</li>
-                    @endforeach
+                    <ul class="responses">
+                        @foreach($question->response as $response)
+                            <li>{{$response->ResponseName}}</li>
+                        @endforeach
+                    </ul>
                     <button type="button" class="btn js-btn-left">Back</button>
                     <button type="button" class="btn js-btn-right">Next</button>
                 </section>

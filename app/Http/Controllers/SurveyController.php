@@ -64,7 +64,18 @@ class SurveyController extends Controller
     public function show($id)
     {
         $survey = surveys::all()->where('slug', $id);
-            return view('survey.show', ['survey' => $survey]);
+        foreach($survey as $surveys){
+            if(Auth::guest()) {
+                if ($surveys->published == 1) {
+                    return view('survey.show', ['survey' => $survey]);
+                }
+            } else if(Auth::user()->id == $surveys->author_id){
+                return view('survey.show', ['survey' => $survey] );
+            } else{
+                return redirect('/');
+            }
+
+        }
     }
 
     /**

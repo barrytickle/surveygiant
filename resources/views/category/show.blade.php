@@ -14,8 +14,8 @@
                         <div class="card-body">
                             <ul>
                                 <li>Author: {{$survey->user->name}}</li>
-                                <li>Created: {{$survey->published_at}}</li>
-                                <li>Days Left: {{$survey->expire}}</li>
+                                <li>Created: {{$survey->created_at}}</li>
+                                {{--<li>Days Left: {{$survey->expire}}</li>--}}
                             </ul>
                         </div>
                         <div class="card-footer">

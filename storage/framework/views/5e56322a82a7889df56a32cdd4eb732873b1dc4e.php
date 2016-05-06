@@ -17,7 +17,7 @@
 
                     <?php endif; ?>
                     <?php if($question->QuestionType == 'Radio'): ?>
-                        <div class="row">
+                        <div class="row radio">
                             <?php foreach($question->choice as $choice): ?>
                                 <?php echo Form::radio('sur['.$question->id.']', $choice->ChoiceName, ['id' => $choice->ChoiceName.$question->id]); ?>
 

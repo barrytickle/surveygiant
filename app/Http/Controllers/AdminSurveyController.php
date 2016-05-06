@@ -92,6 +92,8 @@ class AdminSurveyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $surveys = surveys::findOrFail($id);
+        $surveys->delete();
+        return redirect('/admin/survey');
     }
 }

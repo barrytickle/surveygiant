@@ -18,6 +18,7 @@
         <li>Copyright&copy; Survey Giant 2016. All Rights reserved</li>
     </ul>
 </footer>
+<script src="/js/app.js"></script>
 <script src="/js/jquery-1.12.3.min.js"></script>
 <script src="/js/global.js"></script>
 </body>
