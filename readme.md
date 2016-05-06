@@ -1,29 +1,24 @@
-# Laravel PHP Framework
+#Introduction
+<p>Survey Giant is an open source Web Based survey creation application. THe site is designed to open up all surveys for access for any user to response to. Each survey can have an expire date where all the resulst for the survey will stop, giving hte user all the results on a selected day via an email update. </p>
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+#Requirements
+<ul>
+    <li>Git</li>
+    <li>Composer</li>
+    <li>MySQl WorkBench</li>
+    <li>PHP</li>
+    <li>Linux (Preferably Ubuntu)</li>
+</ul>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
-
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
-
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-# surveygiant
-# surveygiant
+#Instructions to install
+<ol>
+    <li>Ensure you have git installed on linux</li>
+    <li>Open up a terminal on linux and navigate to the selected folder path to where you wish to install the site</li>
+    <li>Using terminal enter the following command <code>git clone https://github.com/barrytickle/surveygiant.git</code> Doing this will take a few seconds</li>
+    <li>Start up MySQl workbench, ensure that you have a working username and password to secure the db. Update the .env file to match your current credentials</li>
+    <li>Set up a new schema. Call the Schema <b>db_survey</b> with a <b>Utf-8 default Collation</b></li>
+    <li>Using terminal, ensure that your file path is located in the same folder as the project. Type <code>php artisan migrate</code> This will populate your database with the tables required to run the application</li>
+    <li>Again using terminal, run the command <code>php artisan db:seed</code> THis will now populate your tables with some sample information for you to try out</li>
+    <li>Login to the site, the email is: <b>admin@admin.com</b> and the password <b>test123</b></li>
+    <li>Please report any bugs and errors you recieve while trying out the site.</li>
+</ol>
