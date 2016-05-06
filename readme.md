@@ -1,5 +1,13 @@
 #Introduction
-<p>Survey Giant is an open source Web Based survey creation application. THe site is designed to open up all surveys for access for any user to response to. Each survey can have an expire date where all the resulst for the survey will stop, giving hte user all the results on a selected day via an email update. </p>
+<p>Survey Giant is an open source Web Based survey creation application. The site is designed to open up all surveys for access for any user to response to. Each survey can have an expire date where all the results for the survey will stop, giving the user all the results on a selected day via an email update. The temporary account will give you access to the admin panel, giving you tools to play about with.</p>
+
+#Currently not working
+<ul>
+    <li>Adding user to roles</li>
+    <li>Removing user from roles</li>
+    <li>Updating Category</li>
+    <li>Survey Expire</li>
+</ul>
 
 #Requirements
 <ul>

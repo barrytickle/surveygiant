@@ -7,6 +7,14 @@
                     <h1><?php echo e($sur->name); ?></h1>
                     <h3>Author : <?php echo e($sur->user->name); ?></h3>
                     <p><?php echo e($sur->description); ?></p>
+                    <button type="button" class="btn js-btn-right">View Instructions</button>
+                </section>
+                <section class="survey-section">
+                    <h1>Instructions</h1>
+                    <p>This survey is designed to take you through one question at a time. This is designed so that you are not overwhelmed with the contents of the survey, to navigate through the survey please use the Next Back buttons to go through each question. </p>
+                    <p>There may be 3 different types of questions throughout the survey, Long Answered Questions, Short Answered Questions and multiple choice Questions. More questions shall be added in the future.</p>
+                    <p>Thank you for taking the time to participate in this survey.</p>
+                    <button type="button" class="btn js-btn-left">Back</button>
                     <button type="button" class="btn js-btn-right">Start Survey</button>
                 </section>
             <?php foreach($sur->question as $question): ?>

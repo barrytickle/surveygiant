@@ -13,7 +13,7 @@ class SurveySeeder extends Seeder
     {
         DB::table('surveys')->insert([
             ['id'=>1, 'name'=>'Are sports beneficial?', 'description'=>'Sport Survey', 'slug'=>'sport_survey_1', 'author_id'=>'1', 'expire'=>'30'],
-            ['id'=>2, 'name'=>'Is android better than iphone?', 'description'=>'Technology Survey', 'slug'=>'technology_survey_1', 'author_id'=>'1', 'expire'=>'30'],
+            ['id'=>2, 'name'=>'Is android better than iphone?', 'description'=>'Technology Survey', 'slug'=>'technology_survey_1', 'author_id'=>'1', 'published' => '1', 'expire'=>'30'],
             ['id'=>3, 'name'=>'Does global warming exist?', 'description'=>'Science Survey', 'slug'=>'science_survey_1', 'author_id'=>'1', 'expire'=>'30'],
             ['id'=>4, 'name'=>'Is facebook a distraction?', 'description'=>'Social Survey', 'slug'=>'social_survey_1', 'author_id'=>'1', 'expire'=>'30'],
             ['id'=>5, 'name'=>'What is your best learning method?', 'description'=>'Education Survey', 'slug'=>'education_survey_1', 'author_id'=>'1', 'expire'=>'30'],
