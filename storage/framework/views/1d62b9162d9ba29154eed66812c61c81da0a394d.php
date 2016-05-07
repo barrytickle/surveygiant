@@ -15,7 +15,15 @@
                     <h2>Responses</h2>
                     <ul class="responses">
                         <?php foreach($question->response as $response): ?>
-                            <li><?php echo e($response->ResponseName); ?></li>
+
+                                <?php if($question->QuestionType == 'Radio'): ?>
+                                    <?php if($response->ResponseName == $response->ResponseName): ?>
+                                        Test
+                                        <?php endif; ?>
+                                    <?php else: ?>
+                                        <li><?php echo e($response->ResponseName); ?></li>
+                                <?php endif; ?>
+
                         <?php endforeach; ?>
                     </ul>
                     <button type="button" class="btn js-btn-left">Back</button>

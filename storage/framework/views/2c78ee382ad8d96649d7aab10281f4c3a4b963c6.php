@@ -16,6 +16,10 @@
                                 Yes
                             <?php endif; ?>
                         </li>
+                            <?php
+                                $test = 'hi';
+                                print($test);
+                            ?>
                         <?php /*<li>Days left: <?php echo e($survey->expire); ?></li>*/ ?>
                     </ul>
                 </div>

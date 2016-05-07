@@ -57,13 +57,18 @@ class MemberController extends Controller
      */
     public function show($id)
     {
+
+
+
+
         $os = strtoupper(substr(PHP_OS, 0, 3));
         if($os == 'LIN'){
             $surveys = surveys::all()->where('author_id', $id);
         }else{
-        $surveys = surveys::all()->where('author_id', Auth::id());
+            $surveys = surveys::all()->where('author_id', Auth::id());
         }
         return view('me.show', compact('surveys'));
+
     }
 
     /**

@@ -31,7 +31,7 @@
                 <li><a href="<?php echo e(url('/login')); ?>">Sign In</a></li>
                 <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
             <?php else: ?>
-                <li><a href="/me/survey"><?php echo e(Auth::user()->name); ?></a></li>
+                <li><a href="/me/<?php echo e(Auth::id()); ?>"><?php echo e(Auth::user()->name); ?></a></li>
                 <li><a href="<?php echo e(url('/logout')); ?>"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
             <?php endif; ?>
         </ul>
@@ -50,7 +50,7 @@
         <li>Nature</li>
         <?php else: ?>
         <li><a href="/survey/create">Create Survey</a></li>
-        <li><a href="/me/survey">View Your Surveys</a></li>
+        <li><a href="/me/<?php echo e(Auth::id()); ?>">View Your Surveys</a></li>
         <?php endif; ?>
     </ul>
 </section>
