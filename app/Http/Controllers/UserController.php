@@ -62,17 +62,20 @@ class UserController extends Controller
     {
 
         //will check to see if the user is an admin.
-       foreach(Auth::user()->role as $role){
+        foreach(Auth::user()->role as $role){
             if($role->name == 'Admin'){
                 /*
                  * if the user is an admin, it will load all user data and return it to the view
                  * Will also show all surveys corresponding to that user.
                  */
                 $user = User::findOrFail($id);
-                $survey = surveys::all()->where('author_id', $user->id);
-
-                //will return all data to the view.
-                return view('admin.user.show', compact('user', 'survey'));
+                $surveys = surveys::all();
+                //will loop through surveys array to find all authors with same id
+                foreach($surveys as $surv){
+                    $survey = surveys::all()->where('author_id', $surv->author_id);
+                    //will return all data to the view.
+                    return view('admin.user.show', compact('user', 'survey'));
+                }
             }
            //if the user is not admin they will be redirected.
             return redirect('/');

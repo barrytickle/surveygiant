@@ -15,6 +15,7 @@
             </tr>
             </thead>
             <tbody>
+            <!-- will loop through each category and provide details on all categories currently in the db -->
             @foreach($category as $cats)
                 <tr>
                     <td><a href="/admin/category/{{$cats->id}}/">{{$cats->CategoryName}}</a></td>

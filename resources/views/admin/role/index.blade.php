@@ -15,6 +15,9 @@
             </tr>
             </thead>
             <tbody>
+            <!-- will loop through all roles, giving the admin the ability to edit and delete. Showing only the name and label
+                in tabular format
+            -->
             @foreach($role as $roles)
                 <tr>
                     <td><a href="/admin/role/{{$roles->id}}/">{{$roles->name}}</a></td>

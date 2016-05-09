@@ -14,6 +14,10 @@
             </tr>
             </thead>
             <tbody>
+            <!-- due to the admin only being able to view and delete surveys, no edit has been created.
+                 This will loop through the surveys giving the admin only the option to delete any surveys
+                 that break the site rules
+             -->
             @foreach($survey as $surveys)
                 <tr>
                     <td>{{$surveys->name}}</td>
@@ -23,7 +27,6 @@
                     @endforeach
                     <td><a href="/admin/user/{{$surveys->user->id}}">{{$surveys->user->name}}</a></td>
                     <td>{{$surveys->created_at}}</td>
-                    {{--<td>{{$surveys->expire}}</td>--}}
                     <td>{!! Form::open(['method' => 'DELETE', 'route' => ['admin.survey.destroy', $surveys->id]]) !!}
                         {!! Form::submit('Delete', ['class' => 'btn']) !!}
                         {!! Form::close() !!}</td>

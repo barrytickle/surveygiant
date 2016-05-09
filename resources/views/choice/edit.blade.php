@@ -1,7 +1,9 @@
 @extends('layouts.master')
 @section('content')
     <div class="row">
+        <!-- will Dynamically use choice name-->
         <h1>Edit Choice - {{$choice->ChoiceName}}</h1>
+        <!-- will check for any errors -->
         @if ($errors->any())
             <div>
                 <ul class="alert alert-danger">
@@ -12,7 +14,7 @@
                 </ul>
             </div>
         @endif
-        {{$choice->id}}
+        <!-- will link through to the update method, using the choice id as the update id -->
         {!! Form::model($choice, ['method' => 'PATCH', 'url' => 'choice/' . $choice->id, 'class' => 'login-box'] ) !!}
         {!! Form::label('ChoiceName', 'Choice Text: ') !!}
         {!! Form::text('ChoiceName', null) !!}

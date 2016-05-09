@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+        <!-- Data will be presented as a table -->
     <div class="row">
         <h1>Choice List - {{$question->QuestionName}}</h1>
     </div>
@@ -16,11 +17,13 @@
             </tr>
             </thead>
             <tbody>
+            <!-- Loops through choices. -->
             @foreach($question->choice as $choice)
                 <tr>
                     <td>{{$choice->ChoiceName}}</td>
                     <td><a href="/choice/{{$choice->id}}/edit"><button class="btn" type="button">Edit</button></a></td>
                     <td>
+                        <!-- links to custom delete method-->
                         {!! Form::open(['method' => 'DELETE', 'route' => ['choice.destroy', $choice->id]]) !!}
                         {!! Form::submit('Delete', ['class' => 'btn']) !!}
                         {!! Form::close() !!}

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <div class="row">
+        <!-- will show name of the user and will show all surveys related to that user -->
         <h1>{{$user->name}} - Surveys</h1>
     </div>
     <div class="row">
@@ -15,6 +16,7 @@
                 </tr>
             </thead>
             <tbody>
+            <!-- loops through surveys. -->
                 @foreach($survey as $surveys)
                     <tr>
                         <td>{{ $surveys->name }}</td>

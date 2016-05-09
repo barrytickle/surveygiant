@@ -18,11 +18,6 @@ class AdminCategoryController extends Controller
     public function __construct(){
         // will require the admin to be logged in before any methods can be used
         $this->middleware('auth');
-        foreach(Auth::user()->role as $role){
-            if($role->name != 'Admin'){
-                return redirect('/');
-            }
-        }
     }
 
     /**

@@ -13,6 +13,7 @@
             </tr>
             </thead>
             <tbody>
+            <!-- will grab all users related to the role, and will display all the users assigned to that role -->
                 @foreach($roles->user as $user)
                     @foreach($user->role as $role)
                         @if($role->id == $roles->id)

@@ -27,8 +27,8 @@ class AdminSurveyController extends Controller
     public function index()
     {
         //checks to see if the user logged in has admin rights
-        foreach(Auth::user()->$role as $role) {
-            if($role == 'Admin') {
+        foreach(Auth::user()->role as $role){
+            if($role->name == 'Admin'){
                 // will get  all data from surveys if admin
                 $survey = surveys::all();
                 //will return view with survey data
