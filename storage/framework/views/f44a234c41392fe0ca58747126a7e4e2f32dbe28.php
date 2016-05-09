@@ -1,4 +1,5 @@
 <?php $__env->startSection('content'); ?>
+        <!-- Data will be presented as a table -->
     <div class="row">
         <h1>Choice List - <?php echo e($question->QuestionName); ?></h1>
     </div>
@@ -15,11 +16,13 @@
             </tr>
             </thead>
             <tbody>
+            <!-- Loops through choices. -->
             <?php foreach($question->choice as $choice): ?>
                 <tr>
                     <td><?php echo e($choice->ChoiceName); ?></td>
                     <td><a href="/choice/<?php echo e($choice->id); ?>/edit"><button class="btn" type="button">Edit</button></a></td>
                     <td>
+                        <!-- links to custom delete method-->
                         <?php echo Form::open(['method' => 'DELETE', 'route' => ['choice.destroy', $choice->id]]); ?>
 
                         <?php echo Form::submit('Delete', ['class' => 'btn']); ?>

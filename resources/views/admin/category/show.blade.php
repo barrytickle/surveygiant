@@ -15,7 +15,7 @@
             </tr>
             </thead>
             <tbody>
-            <!-- Will loop through surveys and will display all surveys related to this category --> 
+            <!-- Will loop through surveys and will display all surveys related to this category -->
             @foreach($survey as $surveys)
                 @foreach($surveys->category as $cat)
                     @if($cat->id == $category->id)

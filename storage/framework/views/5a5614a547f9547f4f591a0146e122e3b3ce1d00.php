@@ -1,6 +1,8 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
+        <!-- Grabs survey name dynamically -->
         <h1>Edit - <?php echo e($survey->name); ?></h1>
+        <!-- will update survey, patch url will link to the update method-->
         <?php echo Form::model($survey, ['method' => 'PATCH', 'url' => 'survey/' . $survey->id, 'class' => 'login-box']); ?>
 
         <section class="survey-section section-active">
@@ -18,12 +20,15 @@
 
             <?php echo Form::label('category', 'Category:'); ?>
 
+                    <!-- Will loop through categories-->
             <?php foreach($survey->category as $cat): ?>
                 <?php echo Form::select('category[]', $cats,$cat->id ); ?>
 
             <?php endforeach; ?>
+                    <!-- Gives the user the option to publish survey -->
             <?php echo Form::label('publish', 'Publish Survey?'); ?>
 
+                    <!-- Will check to see if the survey is published, if it is it will leave the checkbox checked, else it will be unchecked. -->
             <?php if($survey->published == 1): ?>
                 <?php echo Form::checkbox('publish', 'Publish', true); ?>
 

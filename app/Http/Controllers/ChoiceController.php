@@ -31,7 +31,7 @@ class ChoiceController extends Controller
     public function create($id)
     {
         $question = question::findOrFail($id);
-        foreach($question->survey as $surveys) {
+        foreach($question->surveys as $surveys) {
             //will check to see if the current user created the question
             if ($surveys->author_id == Auth::id()) {
                 //if user created the question, question view will load

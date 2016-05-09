@@ -1,14 +1,17 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
         <?php foreach($survey as $sur): ?>
+                <!-- Will send user responses to custom method "Response" -->
             <?php echo Form::open(array('action' => 'SurveyController@response', 'class' => 'login-box survey-box')); ?>
 
+                <!-- Survey Introduction section -->
                 <section class="survey-section section-active">
                     <h1><?php echo e($sur->name); ?></h1>
                     <h3>Author : <?php echo e($sur->user->name); ?></h3>
                     <p><?php echo e($sur->description); ?></p>
                     <button type="button" class="btn js-btn-right">View Instructions</button>
                 </section>
+            <!-- Survey Instruction section -->
                 <section class="survey-section">
                     <h1>Instructions</h1>
                     <p>This survey is designed to take you through one question at a time. This is designed so that you are not overwhelmed with the contents of the survey, to navigate through the survey please use the Next Back buttons to go through each question. </p>
@@ -17,13 +20,17 @@
                     <button type="button" class="btn js-btn-left">Back</button>
                     <button type="button" class="btn js-btn-right">Start Survey</button>
                 </section>
+        <!-- Will loop through all questions in survey -->
             <?php foreach($sur->question as $question): ?>
                 <section class="survey-section">
                     <h1><?php echo e($question->QuestionName); ?></h1>
+                    <!-- Checks question type. -->
                     <?php if($question->QuestionType == 'Short'): ?>
+                            <!-- sur[] is an array that will hold all the question ID's with the response as a $key => $value format -->
                         <?php echo Form::text('sur['.$question->id.']'); ?>
 
                     <?php endif; ?>
+
                     <?php if($question->QuestionType == 'Radio'): ?>
                         <div class="row radio">
                             <?php foreach($question->choice as $choice): ?>
@@ -42,6 +49,7 @@
                     <button type="button" class="btn js-btn-right">Next</button>
                 </section>
             <?php endforeach; ?>
+                    <!-- End of survey submit form -->
             <section class="survey-section">
                 <h1>End of survey</h1>
                 <p>Thank you for finishing this survey, press submit to send.</p>

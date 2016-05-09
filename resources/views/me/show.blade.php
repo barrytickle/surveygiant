@@ -39,9 +39,9 @@
                         <a href="/question/{{$survey->slug}}"><button class="btn btn-center">Questions</button></a>
                     </div>
                     <div class="row btn-center">
-                        <a href="/responses/{{$survey->slug}}"><button class="btn">View Responses/button></a><
+                        <a href="/responses/{{$survey->slug}}"><button class="btn">View Responses</button></a>
                     </div>
-                    <!-- wwill link to custom destroy method-->
+                    <!-- will link to custom destroy method-->
                     <div class="row btn-center">
                         {!! Form::open(['method' => 'DELETE', 'route' => ['survey.destroy', $survey->id]])!!}
                         {!! Form::submit('Delete Survey', ['class' => 'btn']) !!}

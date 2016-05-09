@@ -3,7 +3,9 @@
     <h1>Survey Questions</h1>
 </div>
 <div class="row">
+    <!-- loops through all surveys-->
     <?php foreach($survey as $surveys): ?>
+            <!-- gives the user the chance to add a question -->
         <div class="row">
             <a href="/question/<?php echo e($surveys->slug); ?>/create"><button type="button" class="btn">Add new Question</button></a>
         </div>
@@ -17,8 +19,10 @@
             </tr>
             </thead>
             <tbody>
+            <!-- will loop through all questions for the selected survey. -->
         <?php foreach($surveys->question as $question): ?>
                 <tr>
+                    <!-- allows the user to go to a seperate link to add choices to question -->
                     <?php if($question->QuestionType == 'Radio'): ?>
                         <td><a href="/choice/<?php echo e($question->id); ?>"><?php echo e($question->QuestionName); ?></a></td>
                     <?php else: ?>
@@ -26,6 +30,7 @@
                     <?php endif; ?>
                     <td><?php echo e($question->QuestionType); ?></td>
                     <td><a href="/question/<?php echo e($question->id); ?>/edit"><button class="btn" type="button">Edit</button></a></td>
+                    <!-- will trigger the destroy method in the question controller. -->
                     <td>
                         <?php echo Form::open(['method' => 'DELETE', 'route' => ['question.destroy', $question->id]]); ?>
 
