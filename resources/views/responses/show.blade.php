@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         @foreach ($survey as $sur)
-            {!! Form::open(array('action' => 'SurveyController@response', 'class' => 'login-box')) !!}
+            {!! Form::open(array('action' => 'SurveyController@response', 'class' => 'login-box survey-box')) !!}
             <section class="survey-section section-active">
                 <h1>{{$sur->name}}</h1>
                 <h3>Author : {{$sur->user->name}}</h3>

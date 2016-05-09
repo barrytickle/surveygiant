@@ -16,6 +16,7 @@ class AdminSurveyController extends Controller
      */
     public function __construct(){
         $this->middleware('auth');
+        // requires the admin to be logged in
     }
 
     /**
@@ -25,8 +26,17 @@ class AdminSurveyController extends Controller
      */
     public function index()
     {
-        $survey = surveys::all();
-        return view('admin.survey.index', compact('survey'));
+        //checks to see if the user logged in has admin rights
+        foreach(Auth::user()->$role as $role) {
+            if($role == 'Admin') {
+                // will get  all data from surveys if admin
+                $survey = surveys::all();
+                //will return view with survey data
+                return view('admin.survey.index', compact('survey'));
+            } else{
+                return redirect('/');
+            }
+        }
     }
 
     /**
@@ -92,8 +102,15 @@ class AdminSurveyController extends Controller
      */
     public function destroy($id)
     {
+        /*
+         * Note: No admin checks are required as form will only be able to call this method.
+         */
+
+        //will check the database for the survey ID
         $surveys = surveys::findOrFail($id);
+        //if ID has been found corresponding row will be deleted
         $surveys->delete();
+        //admin will be redirected to survey page
         return redirect('/admin/survey');
     }
 }

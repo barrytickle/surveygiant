@@ -15,7 +15,7 @@ extensions:
 modules:
     config:
         Db:
-            dsn: ''
-            user: ''
-            password: ''
+            dsn: 'mysql:host=localhost;dbname=db_survey'
+            user: 'root'
+            password: 'webdev'
             dump: tests/_data/dump.sql

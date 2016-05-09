@@ -57,12 +57,14 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-
+        //will check if the role of the user logged in is an admin
         foreach(Auth::user()->role as $role){
             if($role->name == 'Admin'){
+                //if the user is an admin, the role and view will be loaded
                 $roles = role::findOrFail($id);
                 return view('admin.role.show', compact('roles'));
             }
+            // if the user is not an admin then they will be redirected
             return redirect('/');
         }
     }
@@ -75,11 +77,14 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
+        //will check if the role of the user logged in is an admin
         foreach(Auth::user()->role as $role){
             if($role->name == 'Admin'){
+                //if the user is an admin, the role and view will be loaded
                 $role = role::findOrFail($id);
                 return view('admin.role.edit', compact('role'));
             }
+            // if the user is not an admin then they will be redirected
             return redirect('/');
         }
 
@@ -94,8 +99,14 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*
+         * Note you do not need to require authentication checks for this metho
+         */
+        //will check the db for the row matching the ID
         $role = role::findOrFail($id);
+        //if an ID has been found it will update the row with the elements from the form
         $role->update($request->all());
+        //if successful the system will redirect the admin to the roles page.
         return redirect('/admin/role');
 
     }
@@ -108,7 +119,14 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-//        DB::table('role_user')->delete()->where(['role_id', $id], ['user_id', ''])
+        /*
+         * Note you do not need to require authentication checks for this metho
+         */
+        //system will check for role rows matching id
+        $role = role::findOrFail($id);
+        //if role has been found system will delete role
+        $role->delete();
+        //system will redirect user when role has been deleted.
         return redirect('/admin/role');
     }
 }

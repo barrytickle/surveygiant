@@ -11,6 +11,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    /*
+     * Tells eloquent what fields are available to modify in the table
+     */
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -23,6 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /*
+     * Defines a many to many relationship with roles
+     */
 
     public function role(){
         return $this->belongsToMany('App\role');

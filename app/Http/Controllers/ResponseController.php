@@ -47,9 +47,19 @@ class ResponseController extends Controller
      */
     public function show($id)
     {
+        //will check the database for all rows which match the slug
         $survey = surveys::all()->where('slug', $id);
-        $count = count($survey);
-        return view('responses.show',compact('survey', 'count'));
+        foreach($survey as $surv){
+            // will check to see if the user owns the survey
+            if($surv->author_id == Auth::id()){
+                //if the user owns the survey, it will load the survey view
+                return view('responses.show',compact('survey'));
+            } else{
+                //if user does not own survey, they will be redirected
+                return redirect('/');
+            }
+        }
+
     }
 
     /**

@@ -48,7 +48,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-
+        /*
+         * Will show all category data on the category page
+         */
         $category = category::all()->where('CategoryName', $id);
         return view('category.show',compact('category'));
     }

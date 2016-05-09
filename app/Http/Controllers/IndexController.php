@@ -17,7 +17,9 @@ class IndexController extends Controller
      */
     public function index()
     {
+        //will bring all category fields to home view
         $cats = category::all();
+        // will return home view with categories
         return view('index', compact('cats'));
     }
 

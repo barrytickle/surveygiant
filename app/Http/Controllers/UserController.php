@@ -18,11 +18,15 @@ class UserController extends Controller
      */
     public function index()
     {
+        //will check to see if the user is an admin.
         foreach(Auth::user()->role as $role){
+            //
             if($role->name == 'Admin'){
+
                 $user = User::all();
                 return view('admin.user.index', compact('user'));
             }
+            //if the user is not an admin they will be redirected.
             return redirect('/');
         }
     }
@@ -57,14 +61,21 @@ class UserController extends Controller
     public function show($id)
     {
 
+        //will check to see if the user is an admin.
        foreach(Auth::user()->role as $role){
             if($role->name == 'Admin'){
+                /*
+                 * if the user is an admin, it will load all user data and return it to the view
+                 * Will also show all surveys corresponding to that user.
+                 */
                 $user = User::findOrFail($id);
                 $survey = surveys::all()->where('author_id', $user->id);
 
+                //will return all data to the view.
                 return view('admin.user.show', compact('user', 'survey'));
             }
-//            return redirect('/');
+           //if the user is not admin they will be redirected.
+            return redirect('/');
         }
     }
 
@@ -76,11 +87,19 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        /*
+         * Note: this view will only be designed to give users warnings.
+         */
+
+        //will check to see is user is admin
         foreach(Auth::user()->role as $role){
             if($role->name == 'Admin'){
+                //will load all data relating to that user.
                 $user = User::findOrFail($id);
+
                 return view('admin.user.edit', compact('user'));
             }
+            //if user is not admin they will be redirected.
             return redirect('/');
         }
 
@@ -96,8 +115,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //will check db for user with ID
         $user = User::findOrFail($id);
+        //will update with all fields from form.
         $user->update($request->all());
+        //will redirect back to admin user page.
         return redirect('/admin/user');
     }
 
@@ -109,8 +131,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        //will find user from db via the id
         $user = User::findOrFail($id);
+        //will delete row from database where the id matches
         $user->delete();
+        //will redirect back to admin user.
         return redirect('/admin/user');
     }
 }

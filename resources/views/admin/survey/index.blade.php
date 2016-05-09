@@ -10,7 +10,6 @@
                 <th width="150">Category</th>
                 <th width="150">Author</th>
                 <th width="150">Start Date</th>
-                <th width="150">Days Left</th>
                 <th width="150">Delete</th>
             </tr>
             </thead>

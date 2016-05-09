@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
         <?php foreach($survey as $sur): ?>
-            <?php echo Form::open(array('action' => 'SurveyController@response', 'class' => 'login-box')); ?>
+            <?php echo Form::open(array('action' => 'SurveyController@response', 'class' => 'login-box survey-box')); ?>
 
                 <section class="survey-section section-active">
                     <h1><?php echo e($sur->name); ?></h1>

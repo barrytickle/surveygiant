@@ -6872,6 +6872,12 @@ header.menu-right {
   font-weight: 500;
   font-size: 110%; }
 
+.survey-box {
+  width: 80%; }
+
+.survey-box h1 {
+  font-size: 150%; }
+
 .login-box input[type="email"],
 .login-box input[type="password"],
 .login-box input[type="text"],
@@ -6937,7 +6943,7 @@ input[type="radio"] {
   background-color: #FDE3A7; }
 
 .radio label {
-  width: 90%; }
+  width: 95%; }
 
 /* --------------------------------------------------------------- */
 /* TABLE */
